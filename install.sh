@@ -65,8 +65,17 @@ function modules(){
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
+echo - "\033[0;32m FIREWALL UFW"
 firewall
+
+echo -e "\033[0;32m MODULES"
 modules
+
+echo -e "\033[0;32m INSTALL CONTAINERD"
 install_containerd
+
+echo -e "\033[0;32m CONFIGURE CONTAINERD"
 configure_containerd
+
+echo -e "\033[0;32m RESTART CONTAINERD"
 restart_containerd
