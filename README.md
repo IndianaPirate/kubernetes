@@ -1,6 +1,6 @@
 # KUBERNETES
 
-### EXECUTE CE SCRIPT DANS LE MASTER ET WORKER NODE
+### DEPLOIEMENT DE CLUSTER K8S
 - Il faut suive ces étapes pour déployer le cluster
 1. chmod +x *.sh 
 2. ./install.sh ( Dans le master et worker )
