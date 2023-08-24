@@ -1,14 +1,18 @@
 #!/bin/bash
 
-
+config=$(hostname)
 function create_kube(){
-  config=$(hostname)
   if [ $config == "master" ]; then
     mkdir -p ~/.kube
     sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
     sudo chown -R vagrant:vagrant ~/.kube/
   fi
 }
+
+function install_weave_net(){
+  kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+}
+
 function install_kubectl_kubeadm_kubelet(){
   sudo apt-get update && sudo apt-get install -y apt-transport-https curl
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -22,3 +26,7 @@ function install_kubectl_kubeadm_kubelet(){
 }
 install_kubectl_kubeadm_kubelet
 create_kube
+
+if [ $config == "master" ]; then
+  install_weave_net
+fi
