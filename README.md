@@ -9,3 +9,6 @@
 5. ./master_only.sh ( Dans le master seulement)
 ### POUR SUPRIMMER KUBERNETES
 1. ./uninstall_k8s.sh
+### RESET PAREFEU UFW
+1. reset_ufw_rules.sh
+
