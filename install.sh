@@ -1,13 +1,17 @@
 #!/bin/bash
 
-
-
 function firewall(){
   sudo apt update -y
   sudo apt install ufw -y
   sudo ufw enable
   hostnam=$(hostname)
   if [ $hostnam == "master" ]; then
+    sudo ufw allow 2222/tcp
+    sudo ufw allow 22/tcp
+    sudo ufw allow 8080/tcp
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+    
     sudo ufw allow 6443/tcp
     sudo ufw allow 2379:2380/tcp
     sudo ufw allow 10250/tcp
@@ -15,6 +19,12 @@ function firewall(){
     sudo ufw allow 10252/tcp
     sudo ufw allow 6783/tcp
   else
+    sudo ufw allow 2222/tcp
+    sudo ufw allow 22/tcp
+    sudo ufw allow 8080/tcp
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+    
     sudo ufw allow 10250/tcp
     sudo ufw allow 30000:32767/tcp
     sudo ufw allow 6783/tcp
