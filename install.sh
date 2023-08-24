@@ -21,6 +21,21 @@ function firewall(){
   fi
 }
 
+function install_containerd(){
+  sudo apt-get  update -y
+  sudo apt-get install containerd -y
+}
+
+function configure_containerd(){
+  sudo mkdir  -p  /etc/containerd
+  containerd config default  | sudo tee /etc/containerd/config.toml
+}
+
+function restart_containerd(){
+  sudo systemctl restart containerd
+  service containerd status
+}
+
 function modules(){
   cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
   overlay
@@ -40,14 +55,3 @@ function modules(){
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
-
-function install_containerd(){
-  sudo apt-get  update -y
-  sudo apt-get install containerd -y
-}
-
-sudo mkdir  -p  /etc/containerd
-containerd config default  | sudo tee /etc/containerd/config.toml
-
-sudo systemctl restart containerd
-service containerd status
