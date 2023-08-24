@@ -41,8 +41,10 @@ function modules(){
   sudo sysctl --system
 }
 
-sudo apt-get  update -y
-sudo apt-get install containerd -y
+function install_containerd(){
+  sudo apt-get  update -y
+  sudo apt-get install containerd -y
+}
 
 sudo mkdir  -p  /etc/containerd
 containerd config default  | sudo tee /etc/containerd/config.toml
