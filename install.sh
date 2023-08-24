@@ -55,3 +55,8 @@ function modules(){
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
+firewall
+modules
+install_containerd
+configure_containerd
+restart_containerd
