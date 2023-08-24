@@ -7,7 +7,7 @@ function firewall(){
   sudo apt install ufw -y
   sudo ufw enable
   hostnam=$(hostname)
-  if [ hostnam == "master" ]; then
+  if [ $hostnam == "master" ]; then
     sudo ufw allow 6443/tcp
     sudo ufw allow 2379:2380/tcp
     sudo ufw allow 10250/tcp
