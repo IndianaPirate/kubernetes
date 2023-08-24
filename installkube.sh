@@ -9,3 +9,10 @@ EOF
 sudo apt-get update -y
 sudo apt-get install -y kubelet=1.28.0-00 kubeadm=1.28.0-00 kubectl=1.28.0-00 
 sudo apt-mark hold kubelet kubeadm kubectl
+config=$(hostname)
+
+if [ config == "master" ]; then
+  mkdir -p ~/.kube
+  sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
+  sudo chown -R vagrant:vagrant ~/.kube/
+fi
