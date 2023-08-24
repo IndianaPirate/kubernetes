@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANT_BOX         = "debian/bullseye64"
+VAGRANT_BOX         = "generic/ubuntu2204"
 CPUS_MASTER_NODE    = 2
 CPUS_WORKER_NODE    = 1
 MEMORY_MASTER_NODE  = 2048
