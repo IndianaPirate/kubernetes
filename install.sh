@@ -65,17 +65,18 @@ EOF
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
-echo - "\033[0;32m FIREWALL UFW"
+GREEN='\033[0;32m'
+echo - "${GREEN}FIREWALL UFW${GREEN}"
 firewall
 
-echo -e "\033[0;32m MODULES"
+echo -e "${GREEN}MODULES${GREEN}"
 modules
 
-echo -e "\033[0;32m INSTALL CONTAINERD"
+echo -e "${GREEN}INSTALL CONTAINERD${GREEN}"
 install_containerd
 
-echo -e "\033[0;32m CONFIGURE CONTAINERD"
+echo -e "${GREEN}CONFIGURE CONTAINERD${GREEN}"
 configure_containerd
 
-echo -e "\033[0;32m RESTART CONTAINERD"
+echo -e "${GREEN}RESTART CONTAINERD${GREEN}"
 restart_containerd
