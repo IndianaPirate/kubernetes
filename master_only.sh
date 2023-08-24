@@ -1,5 +1,6 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
 
 function create_kube_directory(){
   if [ $config == "master" ]; then
@@ -16,3 +17,5 @@ function install_weave_net(){
     kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
   fi
 }
+create_kube_directory
+install_weave_net
