@@ -3,6 +3,7 @@
 config=$(hostname)
 function create_kube_directory(){
   if [ $config == "master" ]; then
+    echo -e "${GREEN}INSTALL WEAVE NET${GREEN}"
     mkdir -p ~/.kube
     sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
     sudo chown -R vagrant:vagrant ~/.kube/
@@ -37,5 +38,4 @@ echo -e "${GREEN}CREATE .KUBE DIRECTORY${GREEN}"
 create_kube_directory
 
 # Install weave net in master node only
-echo -e "${GREEN}INSTALL WEAVE NET${GREEN}"
 install_weave_net
