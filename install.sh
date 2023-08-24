@@ -1,6 +1,8 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
 function firewall(){
+  echo - "${GREEN}FIREWALL UFW${GREEN}"
   sudo apt update -y
   sudo apt install ufw -y
   sudo ufw enable
@@ -32,21 +34,25 @@ function firewall(){
 }
 
 function install_containerd(){
+  echo -e "${GREEN}INSTALL CONTAINERD${GREEN}"
   sudo apt-get  update -y
   sudo apt-get install containerd -y
 }
 
 function configure_containerd(){
+  echo -e "${GREEN}CONFIGURE CONTAINERD${GREEN}"
   sudo mkdir  -p  /etc/containerd
   containerd config default  | sudo tee /etc/containerd/config.toml
 }
 
 function restart_containerd(){
+  echo -e "${GREEN}RESTART CONTAINERD${GREEN}"
   sudo systemctl restart containerd
   service containerd status
 }
 
 function modules(){
+  echo -e "${GREEN}MODULES${GREEN}"
   cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
   overlay
   br_netfilter
@@ -65,18 +71,12 @@ EOF
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
-GREEN='\033[0;32m'
-echo - "${GREEN}FIREWALL UFW${GREEN}"
 firewall
 
-echo -e "${GREEN}MODULES${GREEN}"
 modules
 
-echo -e "${GREEN}INSTALL CONTAINERD${GREEN}"
 install_containerd
 
-echo -e "${GREEN}CONFIGURE CONTAINERD${GREEN}"
 configure_containerd
 
-echo -e "${GREEN}RESTART CONTAINERD${GREEN}"
 restart_containerd
