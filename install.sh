@@ -1,6 +1,11 @@
 #!/bin/bash
 
 GREEN='\033[0;32m'
+
+function deactivate_swap(){
+  echo "${GREEN}DEACTIVATE SWAP${GREEN}"
+  sudo swapoff -a
+}
 function firewall(){
   echo - "${GREEN}FIREWALL UFW${GREEN}"
   sudo apt update -y
@@ -71,6 +76,9 @@ EOF
   # Apply sysctl params without reboot
   sudo sysctl --system
 }
+
+deactivate_swap
+
 firewall
 
 modules
