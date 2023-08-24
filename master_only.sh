@@ -1,6 +1,7 @@
 #!/bin/bash
 
 GREEN='\033[0;32m'
+config=$(hostname)
 
 function initiate_cluster() {
   echo -e "${GREEN} INITIATE CLUSTER ${GREEN}"
