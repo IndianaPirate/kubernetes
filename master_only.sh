@@ -23,4 +23,3 @@ function install_weave_net(){
 }
 create_kube_directory
 install_weave_net
-initiate_cluster
