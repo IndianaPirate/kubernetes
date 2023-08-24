@@ -26,15 +26,16 @@ EOF
   sudo apt-get install -y kubelet=1.28.0-00 kubeadm=1.28.0-00 kubectl=1.28.0-00 
   sudo apt-mark hold kubelet kubeadm kubectl
 }
-# Install kubectl kubeadm kubelet
 
-echo -e "\033[0;32m INSTALL KUBEADM KUBELET KUBECTL"
+GREEN='\033[0;32m'
+# Install kubectl kubeadm kubelet
+echo -e "${GREEN}INSTALL KUBEADM KUBELET KUBECTL${GREEN}"
 install_kubectl_kubeadm_kubelet
 
 # Create .kube directory
-echo -e "\033[0;32m CREATE .KUBE DIRECTORY"
+echo -e "${GREEN}CREATE .KUBE DIRECTORY${GREEN}"
 create_kube_directory
 
 # Install weave net in master node only
-echo -e "\033[0;32m INSTALL WEAVE NET"
+echo -e "${GREEN}INSTALL WEAVE NET${GREEN}"
 install_weave_net
