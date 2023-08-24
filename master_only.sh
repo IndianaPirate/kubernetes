@@ -3,10 +3,6 @@
 GREEN='\033[0;32m'
 config=$(hostname)
 
-function initiate_cluster() {
-  echo -e "${GREEN} INITIATE CLUSTER ${GREEN}"
-  sudo kubeadm init
-}
 function create_kube_directory(){
   if [ $config == "master" ]; then
     echo -e "${GREEN}CREATE .KUBE DIRECTORY${GREEN}"
