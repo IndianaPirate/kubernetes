@@ -10,7 +10,7 @@ function create_kube_directory(){
 }
 
 function install_weave_net(){
-  if [ $hostnam == "master" ]; then
+  if [ $config == "master" ]; then
     kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
   fi
 }
@@ -27,10 +27,14 @@ function install_kubectl_kubeadm_kubelet(){
   sudo apt-mark hold kubelet kubeadm kubectl
 }
 # Install kubectl kubeadm kubelet
+
+echo -e "\033[0;32m INSTALL KUBEADM KUBELET KUBECTL"
 install_kubectl_kubeadm_kubelet
 
 # Create .kube directory
+echo -e "\033[0;32m CREATE .KUBE DIRECTORY"
 create_kube_directory
 
 # Install weave net in master node only
+echo -e "\033[0;32m INSTALL WEAVE NET"
 install_weave_net
