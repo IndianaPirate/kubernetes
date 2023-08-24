@@ -34,8 +34,3 @@ EOF
 # Install kubectl kubeadm kubelet
 install_kubectl_kubeadm_kubelet
 
-# Create .kube directory
-create_kube_directory
-
-# Install weave net in master node only
-install_weave_net
