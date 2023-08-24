@@ -18,6 +18,7 @@ function firewall(){
     sudo ufw allow 8080/tcp
     sudo ufw allow 80/tcp
     sudo ufw allow 443/tcp
+    sudo ufw allow 10248/tcp
     
     sudo ufw allow 6443/tcp
     sudo ufw allow 2379:2380/tcp
