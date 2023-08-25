@@ -1,0 +1,14 @@
+# L'objectif c'est d'automatisé la verification d'erreur de syntaxe des scripts
+name: Lint Test 
+on:
+  push:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install shellcheck
+      run: sudo apt install shellcheck -y
+    - name: Lint Test Shell install_prerequis.sh
+      run: shellcheck install_prerequis.sh 
