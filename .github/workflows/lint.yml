@@ -12,3 +12,13 @@ jobs:
       run: sudo apt install shellcheck -y
     - name: Lint Test Shell install_prerequis.sh
       run: shellcheck install_prerequis.sh 
+    - name: Lint Test Shell install_kubeadm_kubelet_kubectl.sh
+      run: shellcheck install_kubeadm_kubelet_kubectl.sh
+    - name: Lint Test Shell initiate_cluster.sh
+      run: shellcheck initiate_cluster.sh
+    - name: Lint Test create_kube_dir_install_weave_net.sh
+      run: shellcheck create_kube_dir_install_weave_net.sh
+    - name: Lint Test reset_ufw_rules.sh
+      run: shellcheck reset_ufw_rules.sh
+    - name: Lint Test uninstall_k8s.sh
+      run: shellcheck uninstall_k8s.sh
