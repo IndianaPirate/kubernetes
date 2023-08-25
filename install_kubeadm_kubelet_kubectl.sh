@@ -1,7 +1,6 @@
 #!/bin/bash
 
 GREEN='\033[0;32m'
-config=$(hostname)
 
 function install_kubectl_kubeadm_kubelet(){
   echo -e "${GREEN}INSTALL KUBEADM KUBELET KUBECTL${GREEN}"
